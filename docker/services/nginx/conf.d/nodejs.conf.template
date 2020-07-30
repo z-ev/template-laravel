@@ -1,0 +1,28 @@
+# Nginx configuration
+
+server {
+
+    listen ${NGINX_CONT_PORT} default_server;
+    server_name ${NGINX_SERVER_NAME} www.${NGINX_SERVER_NAME};
+    
+    error_log  /${PROJECT_NAME}/${NGINX_ROOT}/error-nginx.log;
+    access_log /${PROJECT_NAME}/${NGINX_ROOT}/access-nginx.log;
+
+    server_tokens off;
+
+    location ~* \.(gif|jpg|jpeg|png|js|css)$ {
+        root /${PROJECT_NAME}/${NGINX_ROOT};
+    }
+
+    location / {
+        proxy_set_header X-Real-IP  $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+        proxy_pass http://${NODEJS_HOST}:${NODEJS_CONT_PORT};
+    }
+
+    # Запрет доступа к файлам .htaccess
+    location ~ /\.ht {
+        deny all;
+    }
+}

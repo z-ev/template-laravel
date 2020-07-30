@@ -14,6 +14,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::get('/unauthorized', function (Request $request) {
+    return response()->json([
+        'message' => 'Unauthorized.',
+        'errors' => ['auth' => 'Unauthorized.']
+    ], 401);
+})->name('unauthorized');
+
+Route::prefix('auth')->namespace('Auth')->group(function() {
+    Route::post('register', 'RegisterController')->name('register');
+    Route::post('token', 'TokenController')->name('token');
+
+    // Get permission routes
+    Route::get('permission-routes', 'PermissionRouteController')->middleware(['auth:sanctum']);
 });
+
+Route::prefix('dashboard')
+    ->namespace('Dashboard')
+    ->middleware(['auth:sanctum', 'check-p'])
+    ->group(function() {
+        Route::apiResources([
+
+            // System
+            'users' => 'UserController',
+        ]);
+    });

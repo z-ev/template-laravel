@@ -3,9 +3,8 @@
 namespace App\Http\Resources\Dashboard;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Resources\Dashboard\UserAgentCollection;
 
-class User extends JsonResource
+class Token extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,8 +14,6 @@ class User extends JsonResource
      */
     public function toArray($request)
     {
-        $input = $request->all();
-        $input['userAgents'] = new UserAgentCollection($this->userAgents);
-        return parent::toArray($input);
+        return parent::toArray($request);
     }
 }

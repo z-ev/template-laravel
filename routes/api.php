@@ -41,5 +41,6 @@ Route::prefix('dashboard')
 
             // System
             'users' => 'UserController',
+            'user-agents' => 'UserAgentController',
         ]);
     });

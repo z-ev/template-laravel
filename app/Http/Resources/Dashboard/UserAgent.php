@@ -3,6 +3,8 @@
 namespace App\Http\Resources\Dashboard;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Dashboard\User as UserResource;
+use App\Http\Resources\Dashboard\Token as TokenResource;
 
 class UserAgent extends JsonResource
 {
@@ -14,6 +16,9 @@ class UserAgent extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        $input = $request->all();
+        $input['user'] = new UserResource($this->user);
+        $input['token'] = new TokenResource($this->token);
+        return parent::toArray($input);
     }
 }

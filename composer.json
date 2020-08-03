@@ -1,10 +1,12 @@
 {
-    "name": "laravel/laravel",
+    "name": "darkjinnee/template-laravel",
+    "version": "1.0.0",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Template for quickly deploying backend to Laravel",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "template"
     ],
     "license": "MIT",
     "require": {

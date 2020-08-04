@@ -19,6 +19,12 @@ class UserCollection extends ResourceCollection
             'links' => [
                 'self' => 'link-value',
             ],
+            'headers' => [
+                ['text' => '#', 'align' => 'left', 'value' => 'id'],
+                ['text' => 'Имя', 'align' => 'center', 'value' => 'name'],
+                ['text' => 'E-mail', 'align' => 'left', 'value' => 'email'],
+                ['text' => 'Действия', 'align' => 'right', 'value' => 'action', 'sortable' => false],
+            ]
         ];
     }
 }

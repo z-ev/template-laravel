@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/darkjinnee/template-laravel/compare/v1.0.1...v1.1.0) (2020-08-19)
+
+
+### Features
+
+* **docker:** add auto composer install ([49e4a62](https://github.com/darkjinnee/template-laravel/commit/49e4a62a5dfebc06c555b0d5906a07fa186f9040))
+
 ### [1.0.1](https://github.com/darkjinnee/template-laravel/compare/v1.0.0...v1.0.1) (2020-08-04)
 
 ## 1.0.0 (2020-08-03)

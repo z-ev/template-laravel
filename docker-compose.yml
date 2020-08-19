@@ -13,6 +13,8 @@ services:
     volumes:
       - ${DOCKER_PROJECT_ROOT}:${DOCKER_PROJECT_PATCH}
       - ./docker/services/php/conf.d/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+      - ./docker/scripts/php.sh:/scripts/php.sh
+    command: /scripts/php.sh
 
   nginx:
     build:

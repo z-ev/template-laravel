@@ -12,7 +12,7 @@ echo -e "$(cat .env.example)\n$(cat .env.docker)" >> .env \
 ### Add string host's file
 ```bash
 ...
-127.0.0.1 api.template-laravel.loc www.api.template-laravel.loc
+127.0.0.1 api.template.loc www.api.template.loc
 ```
 ### Migrate and Seeding
 ```bash

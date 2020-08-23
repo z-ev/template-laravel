@@ -29,13 +29,15 @@ Route::prefix('auth')->namespace('Auth')->group(function() {
     Route::post('register', 'RegisterController')->name('register');
     Route::post('token', 'TokenController')->name('token');
 
-    // Get permission routes
-    Route::get('permission-routes', 'PermissionRouteController')->middleware(['auth:sanctum']);
+    // Get Listing
+    Route::get('routes', 'ListingController@routes')->middleware(['auth:sanctum']);
+    Route::get('roles', 'ListingController@roles')->middleware(['auth:sanctum']);
+    Route::get('permissions', 'ListingController@permissions')->middleware(['auth:sanctum']);
 });
 
 Route::prefix('dashboard')
     ->namespace('Dashboard')
-    ->middleware(['auth:sanctum', 'check-p'])
+    ->middleware(['auth:sanctum', 'check-prs'])
     ->group(function() {
         Route::apiResources([
 

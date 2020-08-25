@@ -30,7 +30,7 @@ Route::prefix('auth')->namespace('Auth')->group(function() {
     Route::post('token', 'TokenController')->name('token');
 
     // Get Listing
-    Route::get('routes', 'ListingController@routes')->middleware(['auth:sanctum']);
+    Route::get('routes', 'ListingController@routes');
     Route::get('roles', 'ListingController@roles')->middleware(['auth:sanctum']);
     Route::get('permissions', 'ListingController@permissions')->middleware(['auth:sanctum']);
 });
